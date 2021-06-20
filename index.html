@@ -14,11 +14,65 @@
     />
     <!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
     <!-- Document Title -->
     <title>yourBill.</title>
   </head>
-  <body>
-    <h1 class="text-green-400 text-9xl">Your Bill</h1>
+  <body id="index-body">
+    <header class="text-gray-600 body-font">
+        <div
+          class="
+            container
+            mx-auto
+            flex flex-wrap
+            p-5
+            flex-col
+            md:flex-row
+            items-center
+          "
+        >
+          <a
+            class="
+              flex
+              title-font
+              font-medium
+              items-center
+              text-gray-900
+              mb-4
+              md:mb-0
+            "
+          >
+          <img src="../assets/logo.png" class="w-12" alt="">
+  
+            </svg>
+            <span class="ml-3 font-black text-3xl"
+              >your<span class="text-purple-600">Bill</span>.</span
+            >
+          </a>
+          <nav
+            class="
+              cursor-pointer
+              md:ml-auto
+              flex flex-wrap
+              items-center
+              text-base
+              justify-center
+              font-bold
+            "
+          >
+            <a id="home" class="mr-5 text-purple-600 hover:text-gray-900">Home</a>
+            <a id="allorders" class="mr-5 hover:text-gray-900">All Orders</a>
+            <a id="aboutus" class="mr-5 hover:text-gray-900">About Us</a>
+            <a id="contact" class="mr-5 hover:text-gray-900">Contact</a>
+          </nav>
+        </div>
+      </header>
+      <div id="content"></div>
     <script src="./js/index.js"></script>
   </body>
 </html>

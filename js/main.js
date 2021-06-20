@@ -1,10 +1,6 @@
-$(function () {
-  $("#content").load("../pages/main.html");
-});
-
 $(document).ready(function () {
   $("#home").click(function () {
-    $("#content").load("../pages/main.html");
+    $("#content").load("../pages/home.html");
   });
 });
 $(document).ready(function () {
