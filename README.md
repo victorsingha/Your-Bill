@@ -1,3 +1,6 @@
-# Your-Bill
+<p align="center">
+  <img src="https://raw.githubusercontent.com/victorsingha/yourBill/main/assets/company.JPG?token=ATR5GMSJMZAEYRJVPD6PJWDAZ5T5U">
+</p>
 
-<div style="text-align:center"><img src="https://raw.githubusercontent.com/victorsingha/yourBill/main/assets/logo.png?token=ATR5GMQVFB45N54AGTSUJQLAZ5TIY" /></div>
+
+
