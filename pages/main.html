@@ -85,6 +85,9 @@
               Item
             </label>
             <input
+              id="item"
+              onkeyup="getitem()"
+              value=""
               class="
                 appearance-none
                 block
@@ -119,6 +122,8 @@
               Price
             </label>
             <input
+              id="price"
+              onkeyup="getprice()"
               step="any"
               type="number"
               class="
@@ -141,6 +146,8 @@
             />
           </div>
           <button
+            id="add-btn"
+            onclick="additem()"
             class="
               w-full
               bg-purple-500
@@ -176,6 +183,9 @@
               Customer Name
             </label>
             <input
+              id="customer"
+              onkeyup="getcustomer()"
+              value=""
               class="
                 appearance-none
                 block
@@ -210,6 +220,9 @@
               Phone Number
             </label>
             <input
+              value=""
+              id="phone"
+              onkeyup="getphone()"
               type="number"
               class="
                 appearance-none
