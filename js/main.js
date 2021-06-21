@@ -2,18 +2,30 @@ $("#add-item-form").submit(function (e) {
   return false;
 });
 
-var item = "";
-var price = "";
 var customer = "";
 var phone = "";
 
+var count = 1;
+var order = {
+  id: "",
+  item: "",
+  price: "",
+};
+
+var orders = [];
+
 function getitem() {
-  item = $("#item").val();
-  console.log(item);
+  order.item = $("#item").val();
+  console.log(order.item);
 }
 function getprice() {
-  price = $("#price").val();
-  console.log(price);
+  order.price = $("#price").val();
+  console.log(order.price);
+}
+function additem() {
+  order.id = count;
+  orders.push(order);
+  count = count + 1;
 }
 function getcustomer() {
   customer = $("#customer").val();
@@ -23,9 +35,6 @@ function getphone() {
   phone = $("#phone").val();
   console.log(phone);
 }
-function additem() {
-  console.log(item + price);
-}
 function generatebill() {
-  console.log("Bill.");
+  console.log(orders);
 }
