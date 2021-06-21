@@ -1,34 +1,49 @@
-$("#add-item-form").submit(function (e) {
-  return false;
-});
+// $("#add-item-form").submit(function (e) {
+//   return false;
+// });
+document.querySelector("#add-btn").addEventListener(
+  "click",
+  function (event) {
+    event.preventDefault();
+  },
+  false
+);
+document.querySelector("#generate-btn").addEventListener(
+  "click",
+  function (event) {
+    event.preventDefault();
+  },
+  false
+);
 
-var item = "";
-var price = "";
-var customer = "";
-var phone = "";
+var _item = "";
+var _price = "";
+var _customer = "";
+var _phone = "";
 
 var count = 1;
-var order = {
-  id: "",
-  item: "",
-  price: "",
-};
+localStorage.setItem("id", count);
 
 var orders = [];
 
 function getitem() {
-  item = $("#item").val();
-  console.log(item);
+  _item = $("#item").val();
+  console.log(_item);
 }
 function getprice() {
-  price = $("#price").val();
-  console.log(price);
+  _price = $("#price").val();
+  console.log(_price);
 }
 function additem() {
-  order.id = count;
-  order.item = item;
-  order.price = price;
+  var _id = localStorage.getItem("id");
+  var order = {
+    id: _id,
+    item: _item,
+    price: _price,
+  };
   orders.push(order);
+  _id++;
+  localStorage.setItem("id", _id);
 }
 function getcustomer() {
   customer = $("#customer").val();
