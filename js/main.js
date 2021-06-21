@@ -47,6 +47,7 @@ function additem() {
   _items.push(item);
   _id++;
   localStorage.setItem("itemID", _id);
+  displayItems(_items);
 }
 function getcustomer() {
   _customer = $("#customer").val();
@@ -70,4 +71,46 @@ function generatebill() {
   _items = [];
   console.log(order);
   console.log(AllORDERS);
+}
+
+function displayItems(items) {
+  var html = "";
+  items.forEach((element) => {
+    html =
+      html +
+      `       <div
+  class="
+    bg-gray-200
+    rounded
+    grid
+    md:grid-cols-4
+    w-full
+    items-center
+    justify-between
+    py-3
+    px-3
+    mb-4
+  "
+>
+  <p class="col-span-2">${element.item}</p>
+  <p>$ ${element.price}</p>
+  <div class="flex justify-end">
+    <p
+      class="
+        bg-red-500
+        px-5
+        py-2
+        rounded
+        text-white
+        hover:bg-red-900
+        cursor-pointer
+      "
+    >
+      Delete
+    </p>
+  </div>
+</div>`;
+  });
+
+  document.getElementById("grid").innerHTML = html;
 }
