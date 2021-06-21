@@ -26,3 +26,6 @@ function getphone() {
 function additem() {
   console.log(item + price);
 }
+function generatebill() {
+  console.log("Bill.");
+}
