@@ -2,6 +2,8 @@ $("#add-item-form").submit(function (e) {
   return false;
 });
 
+var item = "";
+var price = "";
 var customer = "";
 var phone = "";
 
@@ -15,17 +17,18 @@ var order = {
 var orders = [];
 
 function getitem() {
-  order.item = $("#item").val();
-  console.log(order.item);
+  item = $("#item").val();
+  console.log(item);
 }
 function getprice() {
-  order.price = $("#price").val();
-  console.log(order.price);
+  price = $("#price").val();
+  console.log(price);
 }
 function additem() {
   order.id = count;
+  order.item = item;
+  order.price = price;
   orders.push(order);
-  count = count + 1;
 }
 function getcustomer() {
   customer = $("#customer").val();
