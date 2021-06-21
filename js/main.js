@@ -21,38 +21,51 @@ var _price = "";
 var _customer = "";
 var _phone = "";
 
-var count = 1;
-localStorage.setItem("id", count);
+var itemID = 1;
+var billID = 1;
+localStorage.setItem("itemID", itemID);
+localStorage.setItem("billId", billID);
 
-var orders = [];
+var _orders = [];
+var AllORDERS = [];
 
 function getitem() {
   _item = $("#item").val();
-  console.log(_item);
+  // console.log(_item);
 }
 function getprice() {
   _price = $("#price").val();
-  console.log(_price);
+  // console.log(_price);
 }
 function additem() {
-  var _id = localStorage.getItem("id");
-  var order = {
-    id: _id,
+  var _id = localStorage.getItem("itemID");
+  var item = {
+    itemID: _id,
     item: _item,
     price: _price,
   };
-  orders.push(order);
+  _orders.push(item);
   _id++;
-  localStorage.setItem("id", _id);
+  localStorage.setItem("itemID", _id);
 }
 function getcustomer() {
-  customer = $("#customer").val();
-  console.log(customer);
+  _customer = $("#customer").val();
+  // console.log(_customer);
 }
 function getphone() {
-  phone = $("#phone").val();
-  console.log(phone);
+  _phone = $("#phone").val();
+  // console.log(_phone);
 }
 function generatebill() {
-  console.log(orders);
+  var _id = localStorage.getItem("billID");
+  var bill = {
+    billId: _id,
+    customer: _customer,
+    phone: _phone,
+    orders: _orders,
+  };
+  AllORDERS.push(bill);
+  _id++;
+  localStorage.setItem("billID", _id);
+  console.log(bill);
 }
