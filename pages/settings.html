@@ -40,6 +40,9 @@
               Company Name
             </label>
             <input
+              id="company"
+              onkeyup="getCompany()"
+              value=""
               class="
                 appearance-none
                 block
@@ -74,6 +77,9 @@
               Key
             </label>
             <input
+              id="key"
+              onkeyup="getKey()"
+              value=""
               class="
                 appearance-none
                 block
@@ -108,6 +114,8 @@
               Click to generate token.
             </label>
             <button
+              id="generate-btn"
+              onclick="generateToken()"
               class="
                 w-full
                 bg-green-500
@@ -130,6 +138,9 @@
           </div>
         </div>
       </form>
+      <p value="" id="token" class="text-8xl grid justify-center items-center">
+        Token.
+      </p>
     </div>
 
     <script src="../js/settings.js"></script>

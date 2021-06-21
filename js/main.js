@@ -29,6 +29,8 @@ localStorage.setItem("orderID", orderID);
 var _items = [];
 var AllORDERS = [];
 
+document.getElementById("orderID").innerHTML = localStorage.getItem("orderID");
+
 function getitem() {
   _item = $("#item").val();
   // console.log(_item);
@@ -59,6 +61,7 @@ function getphone() {
 }
 function generatebill() {
   var _id = localStorage.getItem("orderID");
+  document.getElementById("orderID").innerHTML = parseInt(_id) + 1;
   var order = {
     orderId: _id,
     customer: _customer,
@@ -70,7 +73,7 @@ function generatebill() {
   localStorage.setItem("orderID", _id);
   _items = [];
   console.log(order);
-  console.log(AllORDERS);
+  // console.log(AllORDERS);
 }
 
 function displayItems(items) {
@@ -96,6 +99,7 @@ function displayItems(items) {
   <p>$ ${element.price}</p>
   <div class="flex justify-end">
     <p
+      onclick="deleteitem(${element.itemID})"
       class="
         bg-red-500
         px-5
@@ -111,6 +115,9 @@ function displayItems(items) {
   </div>
 </div>`;
   });
-
   document.getElementById("grid").innerHTML = html;
+}
+
+function deleteitem(itemID) {
+  console.log(itemID);
 }
