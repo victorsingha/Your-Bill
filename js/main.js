@@ -40,16 +40,18 @@ function getprice() {
   // console.log(_price);
 }
 function additem() {
-  var _id = localStorage.getItem("itemID");
-  var item = {
-    itemID: _id,
-    item: _item,
-    price: _price,
-  };
-  _items.push(item);
-  _id++;
-  localStorage.setItem("itemID", _id);
-  displayItems(_items);
+  if (_item != "" && _price != "") {
+    var _id = localStorage.getItem("itemID");
+    var item = {
+      itemID: _id,
+      item: _item,
+      price: _price,
+    };
+    _items.push(item);
+    _id++;
+    localStorage.setItem("itemID", _id);
+    displayItems(_items);
+  }
 }
 function getcustomer() {
   _customer = $("#customer").val();
@@ -120,4 +122,22 @@ function displayItems(items) {
 
 function deleteitem(itemID) {
   console.log(itemID);
+  console.log(_items);
+  removeByAttr(_items, "itemID", itemID + "");
+  console.log(_items);
+  displayItems(_items);
+}
+function removeByAttr(arr, attr, value) {
+  var i = arr.length;
+  while (i--) {
+    if (
+      arr[i] &&
+      arr[i].hasOwnProperty(attr) &&
+      arguments.length > 2 &&
+      arr[i][attr] === value
+    ) {
+      arr.splice(i, 1);
+    }
+  }
+  return arr;
 }
