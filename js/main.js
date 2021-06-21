@@ -22,11 +22,11 @@ var _customer = "";
 var _phone = "";
 
 var itemID = 1;
-var billID = 1;
+var orderID = 1;
 localStorage.setItem("itemID", itemID);
-localStorage.setItem("billId", billID);
+localStorage.setItem("orderID", orderID);
 
-var _orders = [];
+var _items = [];
 var AllORDERS = [];
 
 function getitem() {
@@ -44,7 +44,7 @@ function additem() {
     item: _item,
     price: _price,
   };
-  _orders.push(item);
+  _items.push(item);
   _id++;
   localStorage.setItem("itemID", _id);
 }
@@ -57,15 +57,17 @@ function getphone() {
   // console.log(_phone);
 }
 function generatebill() {
-  var _id = localStorage.getItem("billID");
-  var bill = {
-    billId: _id,
+  var _id = localStorage.getItem("orderID");
+  var order = {
+    orderId: _id,
     customer: _customer,
     phone: _phone,
-    orders: _orders,
+    items: _items,
   };
-  AllORDERS.push(bill);
+  AllORDERS.push(order);
   _id++;
-  localStorage.setItem("billID", _id);
-  console.log(bill);
+  localStorage.setItem("orderID", _id);
+  _items = [];
+  console.log(order);
+  console.log(AllORDERS);
 }
