@@ -41,7 +41,7 @@ function getprice() {
 }
 function additem() {
   if (_item != "" && _price != "") {
-    var _id = localStorage.getItem("itemID");
+    var _id = parseInt(localStorage.getItem("itemID"));
     var item = {
       itemID: _id,
       item: _item,
@@ -62,20 +62,23 @@ function getphone() {
   // console.log(_phone);
 }
 function generatebill() {
-  var _id = localStorage.getItem("orderID");
-  document.getElementById("orderID").innerHTML = parseInt(_id) + 1;
-  var order = {
-    orderId: _id,
-    customer: _customer,
-    phone: _phone,
-    items: _items,
-  };
-  AllORDERS.push(order);
-  _id++;
-  localStorage.setItem("orderID", _id);
-  _items = [];
-  console.log(order);
-  // console.log(AllORDERS);
+  if (_customer != "" && _phone != "") {
+    var _id = parseInt(localStorage.getItem("orderID"));
+    document.getElementById("orderID").innerHTML = parseInt(_id) + 1;
+    var order = {
+      orderId: _id,
+      customer: _customer,
+      phone: _phone,
+      items: _items,
+    };
+    AllORDERS.push(order);
+    _id++;
+    localStorage.setItem("orderID", _id);
+    _items = [];
+    displayItems(_items);
+    console.log(order);
+    // console.log(AllORDERS);
+  }
 }
 
 function displayItems(items) {
@@ -123,7 +126,7 @@ function displayItems(items) {
 function deleteitem(itemID) {
   console.log(itemID);
   console.log(_items);
-  removeByAttr(_items, "itemID", itemID + "");
+  removeByAttr(_items, "itemID", itemID);
   console.log(_items);
   displayItems(_items);
 }
