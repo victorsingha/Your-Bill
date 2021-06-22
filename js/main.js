@@ -29,7 +29,14 @@ localStorage.setItem("orderID", orderID);
 var _items = [];
 var AllORDERS = [];
 
-document.getElementById("orderID").innerHTML = localStorage.getItem("orderID");
+const d = new Date();
+var year = d.getFullYear();
+var month = d.getMonth();
+var day = d.getDate();
+
+document.getElementById(
+  "orderID"
+).innerHTML = `${day}${month}${year} - ${localStorage.getItem("orderID")}`;
 
 function getitem() {
   _item = $("#item").val();
@@ -64,7 +71,9 @@ function getphone() {
 function generatebill() {
   if (_customer != "" && _phone != "") {
     var _id = parseInt(localStorage.getItem("orderID"));
-    document.getElementById("orderID").innerHTML = parseInt(_id) + 1;
+    document.getElementById("orderID").innerHTML = `${day}${month}${year} - ${
+      parseInt(_id) + 1
+    }`;
     var order = {
       orderId: _id,
       customer: _customer,
