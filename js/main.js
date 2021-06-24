@@ -29,14 +29,12 @@ localStorage.setItem("orderID", orderID);
 var _items = [];
 var AllORDERS = [];
 
+//startup
 const d = new Date();
 var year = d.getFullYear();
 var month = d.getMonth();
 var day = d.getDate();
-
-document.getElementById(
-  "orderID"
-).innerHTML = `${day}${month}${year} - ${localStorage.getItem("orderID")}`;
+document.getElementById("orderID").innerHTML = `${day}${month}${year} - ${localStorage.getItem("orderID")}`;
 
 function getitem() {
   _item = $("#item").val();
@@ -71,9 +69,7 @@ function getphone() {
 function generatebill() {
   if (_customer != "" && _phone != "") {
     var _id = parseInt(localStorage.getItem("orderID"));
-    document.getElementById("orderID").innerHTML = `${day}${month}${year} - ${
-      parseInt(_id) + 1
-    }`;
+    document.getElementById("orderID").innerHTML = `${day}${month}${year} - ${parseInt(_id) + 1}`;
     var order = {
       orderId: _id,
       customer: _customer,
@@ -87,6 +83,7 @@ function generatebill() {
     displayItems(_items);
     console.log(order);
     // console.log(AllORDERS);
+    document.getElementById("grid").innerHTML = JSON.stringify(order, null, 4);
   }
 }
 
@@ -115,12 +112,12 @@ function displayItems(items) {
     <p
       onclick="deleteitem(${element.itemID})"
       class="
-        bg-red-500
+        bg-gray-500
         px-5
         py-2
         rounded
         text-white
-        hover:bg-red-900
+        hover:bg-red-500
         cursor-pointer
       "
     >
@@ -142,12 +139,7 @@ function deleteitem(itemID) {
 function removeByAttr(arr, attr, value) {
   var i = arr.length;
   while (i--) {
-    if (
-      arr[i] &&
-      arr[i].hasOwnProperty(attr) &&
-      arguments.length > 2 &&
-      arr[i][attr] === value
-    ) {
+    if (arr[i] && arr[i].hasOwnProperty(attr) && arguments.length > 2 && arr[i][attr] === value) {
       arr.splice(i, 1);
     }
   }
